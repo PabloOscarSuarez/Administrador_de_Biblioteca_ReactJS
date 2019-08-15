@@ -6,16 +6,15 @@ import RoutesSuscriptores from "../layout/suscriptores/routesContainer";
 
 //import pagina generia si no ingreso a una ruta correcta
 import Nofound from "../layout/noFound";
-import Navbar from "../layout/Navbar/"
+import Navbar from "../layout/Navbar/";
 
 function RoutesContainer() {
   return (
     <Fragment>
-      <Navbar/>
+      <Navbar />
       <Switch>
-        <Route path="/admin" render={() => <RoutesSuscriptores />} />  
-        <Route component={Nofound}/>
-              
+        <Route path="/admin" render={() => <RoutesSuscriptores />} />
+        <Route component={Nofound} />
       </Switch>
     </Fragment>
   );

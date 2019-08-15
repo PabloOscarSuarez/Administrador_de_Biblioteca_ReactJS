@@ -10,9 +10,7 @@ import {
   MDBDropdown,
   MDBDropdownToggle,
   MDBDropdownMenu,
-  MDBDropdownItem,
-  MDBContainer,
-  MDBIcon
+  MDBDropdownItem
 } from "mdbreact";
 
 class NavbarPage extends Component {
@@ -29,48 +27,19 @@ class NavbarPage extends Component {
     return (
       <MDBNavbar color="teal darken-4" dark expand="md">
         <MDBNavbarBrand>
-          <strong className="white-text">MDBNavbar</strong>
+          <strong className="white-text">Administrador de Biblioteca</strong>
         </MDBNavbarBrand>
         <MDBNavbarToggler onClick={this.toggleCollapse("navbarCollapse3")} />
         <MDBCollapse id="navbarCollapse3" isOpen={this.state.collapseID} navbar>
           <MDBNavbarNav left>
-            <MDBNavItem active>
-              <MDBNavLink to="#!">Home</MDBNavLink>
+            <MDBNavItem>
+              <MDBNavLink to={"/admin/suscriptores"}>Suscriptores</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
-              <MDBNavLink to="#!">Features</MDBNavLink>
-            </MDBNavItem>
-            <MDBNavItem>
-              <MDBNavLink to="#!">Pricing</MDBNavLink>
-            </MDBNavItem>
-            <MDBNavItem>
-              <MDBDropdown>
-                <MDBDropdownToggle nav caret>
-                  <div className="d-none d-md-inline">MDBDropdown</div>
-                </MDBDropdownToggle>
-                <MDBDropdownMenu className="dropdown-default" right>
-                  <MDBDropdownItem href="#!">Action</MDBDropdownItem>
-                  <MDBDropdownItem href="#!">Another Action</MDBDropdownItem>
-                  <MDBDropdownItem href="#!">
-                    Something else here
-                  </MDBDropdownItem>
-                  <MDBDropdownItem href="#!">
-                    Something else here
-                  </MDBDropdownItem>
-                </MDBDropdownMenu>
-              </MDBDropdown>
+              <MDBNavLink to={"/"}>Libros</MDBNavLink>
             </MDBNavItem>
           </MDBNavbarNav>
           <MDBNavbarNav right>
-            <MDBNavItem>
-              <MDBNavLink
-                className="waves-effect waves-light d-flex align-items-center"
-                to="#!"
-              >
-                1
-                <MDBIcon icon="envelope" className="ml-1" />
-              </MDBNavLink>
-            </MDBNavItem>
             <MDBNavItem>
               <MDBDropdown>
                 <MDBDropdownToggle className="dopdown-toggle" nav>

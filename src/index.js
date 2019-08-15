@@ -10,9 +10,15 @@ import App from "./components/App/App.jsx";
 
 import { BrowserRouter as Route } from "react-router-dom";
 
+//importo la magia del store de firebase "./redux/store"
+import store from "./redux/store";
+import { Provider } from "react-redux";
+
 ReactDOM.render(
-  <Route>
-    <App />
-  </Route>,
+  <Provider store={store}>
+    <Route>
+      <App />
+    </Route>
+  </Provider>,
   document.getElementById("root")
 );
