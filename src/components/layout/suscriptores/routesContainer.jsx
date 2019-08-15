@@ -11,16 +11,16 @@ function componentName() {
   return (
     <>
       <Switch>
-        <Route exact path="/suscriptores" component={Suscriptores} />
-        <Route exact path="/suscriptores/nuevo" component={NuevoSuscriptores} />
+        <Route exact path="/admin/suscriptores" component={Suscriptores} />
+        <Route exact path="/admin/suscriptores/nuevo" component={NuevoSuscriptores} />
         <Route
           exact
-          path="/suscriptores/editar"
+          path="/admin/suscriptores/editar"
           component={EditarSuscriptores}
         />
         <Route
           exact
-          path="/suscriptores/mostrar"
+          path="/admin/suscriptores/mostrar"
           component={MostrarSuscriptores}
         />
       </Switch>

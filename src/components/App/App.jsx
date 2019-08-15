@@ -1,15 +1,24 @@
-import React from "react";
-import { BrowserRouter } from "react-router-dom";
+import React, { Fragment } from "react";
+import { Switch, Route } from "react-router-dom";
 
-//import a App mi componente que controla las rutas
-import RoutesContainer from "../RoutesContainer";
+// importo el controlador de rutas de suscriptores
+import RoutesSuscriptores from "../layout/suscriptores/routesContainer";
 
-function App() {
+//import pagina generia si no ingreso a una ruta correcta
+import Nofound from "../layout/noFound";
+import Navbar from "../layout/Navbar/"
+
+function RoutesContainer() {
   return (
-    <BrowserRouter>
-      <RoutesContainer />
-    </BrowserRouter>
+    <Fragment>
+      <Navbar/>
+      <Switch>
+        <Route path="/admin" render={() => <RoutesSuscriptores />} />  
+        <Route component={Nofound}/>
+              
+      </Switch>
+    </Fragment>
   );
 }
 
-export default App;
+export default RoutesContainer;
