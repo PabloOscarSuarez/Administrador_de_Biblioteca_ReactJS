@@ -8,14 +8,18 @@ import RoutesSuscriptores from "../layout/suscriptores/routesContainer";
 import Nofound from "../layout/noFound";
 import Navbar from "../layout/Navbar/";
 
+import { MDBContainer } from "mdbreact";
+
 function RoutesContainer() {
   return (
     <Fragment>
       <Navbar />
-      <Switch>
-        <Route path="/admin" render={() => <RoutesSuscriptores />} />
-        <Route component={Nofound} />
-      </Switch>
+      <MDBContainer className="mt-5">
+        <Switch>
+          <Route path="/admin" render={() => <RoutesSuscriptores />} />
+          <Route component={Nofound} />
+        </Switch>
+      </MDBContainer>
     </Fragment>
   );
 }

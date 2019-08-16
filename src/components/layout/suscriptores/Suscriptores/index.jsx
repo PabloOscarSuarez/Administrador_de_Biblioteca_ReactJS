@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+//componentes
 import SuscriptoresPage from "./Suscriptores";
+import Spiner from "../../spiner";
 //dependencia para conectar al store
 import { compose } from "redux";
 import { connect } from "react-redux";
@@ -9,7 +11,11 @@ import { firestoreConnect } from "react-redux-firebase";
 class Suscriptores extends Component {
   render() {
     const { suscriptores } = this.props;
-    return suscriptores ? <SuscriptoresPage /> : <h1>Cargando informacion</h1>;
+    return suscriptores ? (
+      <SuscriptoresPage suscriptores={suscriptores} />
+    ) : (
+      <Spiner />
+    );
   }
 }
 
