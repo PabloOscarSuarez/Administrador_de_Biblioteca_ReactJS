@@ -15,11 +15,14 @@ class Suscriptores extends Component {
   eliminarSuscriptor = id => {
     const { firestore } = this.props;
 
-    firestore.delete({
-      // collection suscriptores en la "tabla" donde se encuentra mis usuarios
-      collection: "suscriptores",
-      doc: id
-    });
+    firestore
+      .delete({
+        // collection suscriptores en la "tabla" donde se encuentra mis usuarios
+        collection: "suscriptores",
+        Astore: "suscriptor",
+        doc: id
+      })
+      .then(data => console.log("esta es la data", data));
   };
 
   render() {

@@ -9,7 +9,7 @@ import {
 } from "mdbreact";
 import { Link } from "react-router-dom";
 
-const BasicTable = ({ suscriptores, eliminarSuscriptor }) => {
+const suscriptores = ({ suscriptores, eliminarSuscriptor }) => {
   return (
     <>
       <Link to="/admin/suscriptores/nuevo">
@@ -40,9 +40,11 @@ const BasicTable = ({ suscriptores, eliminarSuscriptor }) => {
                   </td>
                   <td>{suscriptor.carrera}</td>
                   <td className="text-center">
-                    <MDBBtn color="teal darken-4" size="sm" className="mt-0">
-                      Info
-                    </MDBBtn>
+                    <Link to={`/admin/suscriptores/mostrar/${suscriptor.id}`}>
+                      <MDBBtn color="teal darken-4" size="sm" className="mt-0">
+                        Info
+                      </MDBBtn>
+                    </Link>
                     <MDBBtn
                       color="teal darken-4"
                       size="sm"
@@ -62,4 +64,4 @@ const BasicTable = ({ suscriptores, eliminarSuscriptor }) => {
   );
 };
 
-export default BasicTable;
+export default suscriptores;

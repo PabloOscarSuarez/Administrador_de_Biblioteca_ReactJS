@@ -14,6 +14,8 @@ import { Link } from "react-router-dom";
 import Spiner from "../../spiner";
 //import connect de react-redux-firebase
 import { firestoreConnect } from "react-redux-firebase";
+//---------
+import PropTypes from "prop-types";
 
 class NuevoSuscriptor extends Component {
   state = {
@@ -166,5 +168,10 @@ class NuevoSuscriptor extends Component {
     );
   }
 }
+
+//verifico al momento de capturar por props las funcionalidaddes de firestore que sean correstas
+NuevoSuscriptor.propType = {
+  firestore: PropTypes.object.isRequired
+};
 // conecto mi componente a react-redux-firebase para poder tener acceso por props a las acciones de firestore
 export default firestoreConnect()(NuevoSuscriptor);

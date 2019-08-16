@@ -3,7 +3,7 @@ import { Switch, Route } from "react-router-dom";
 
 //Import componentes de suscriptores
 import EditarSuscriptores from "./editarSuscriptores";
-import MostrarSuscriptores from "./mostrarSuscriptores";
+import MostrarSuscriptor from "./mostrarSuscriptor";
 import NuevoSuscriptores from "./nuevoSuscriptores";
 import Suscriptores from "./Suscriptores";
 
@@ -25,7 +25,7 @@ function componentName() {
         <Route
           exact
           path="/admin/suscriptores/mostrar/:id"
-          component={MostrarSuscriptores}
+          component={MostrarSuscriptor}
         />
       </Switch>
     </>
