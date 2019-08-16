@@ -7,13 +7,16 @@ import {
   MDBAnimation,
   MDBBtn
 } from "mdbreact";
+import { Link } from "react-router-dom";
 
-const BasicTable = ({ suscriptores }) => {
+const BasicTable = ({ suscriptores, eliminarSuscriptor }) => {
   return (
     <>
-      <MDBBtn color="teal darken-4" size="sm" className="mb-4">
-        Nuevo Suscriptor
-      </MDBBtn>
+      <Link to="/admin/suscriptores/nuevo">
+        <MDBBtn color="teal darken-4" size="sm" className="mb-4">
+          Nuevo Suscriptor
+        </MDBBtn>
+      </Link>
       <MDBAnimation type="fadeInLeft">
         <h1>
           <MDBIcon far icon="address-book" /> Suscriptores
@@ -28,20 +31,25 @@ const BasicTable = ({ suscriptores }) => {
             </tr>
           </MDBTableHead>
           <MDBTableBody>
-            {suscriptores.map((suscriptore, id) => {
+            {suscriptores.map((suscriptor, i) => {
               return (
-                <tr key={id}>
-                  <td>{suscriptore.codigo}</td>
+                <tr key={i}>
+                  <td>{suscriptor.codigo}</td>
                   <td>
-                    {suscriptore.nombre} {suscriptore.apellido}
+                    {suscriptor.nombre} {suscriptor.apellido}
                   </td>
-                  <td>{suscriptore.carrera}</td>
+                  <td>{suscriptor.carrera}</td>
                   <td className="text-center">
                     <MDBBtn color="teal darken-4" size="sm" className="mt-0">
                       Info
                     </MDBBtn>
-                    <MDBBtn color="teal darken-4" size="sm" className="mt-0">
-                      Editar
+                    <MDBBtn
+                      color="teal darken-4"
+                      size="sm"
+                      className="mt-0"
+                      onClick={() => eliminarSuscriptor(suscriptor.id)}
+                    >
+                      Eliminar
                     </MDBBtn>
                   </td>
                 </tr>
