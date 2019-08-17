@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 const suscriptores = ({ suscriptores, eliminarSuscriptor }) => {
   return (
     <>
-      <Link to="/admin/suscriptores/nuevo">
+      <Link to="/suscriptores/nuevo">
         <MDBBtn color="teal darken-4" size="sm" className="mb-4">
           Nuevo Suscriptor
         </MDBBtn>
@@ -40,7 +40,7 @@ const suscriptores = ({ suscriptores, eliminarSuscriptor }) => {
                   </td>
                   <td>{suscriptor.carrera}</td>
                   <td className="text-center">
-                    <Link to={`/admin/suscriptores/mostrar/${suscriptor.id}`}>
+                    <Link to={`/suscriptores/mostrar/${suscriptor.id}`}>
                       <MDBBtn color="teal darken-4" size="sm" className="mt-0">
                         Info
                       </MDBBtn>

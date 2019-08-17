@@ -18,7 +18,7 @@ function RoutesContainer() {
       <MDBContainer className="mt-5">
         <Switch>
           <Route path="/suscriptores" render={() => <RoutesSuscriptores />} />
-          <Route path="/libros" render={() => <RoutesLibro />} />
+          <Route path="/" render={() => <RoutesLibro />} />
         </Switch>
       </MDBContainer>
     </Fragment>

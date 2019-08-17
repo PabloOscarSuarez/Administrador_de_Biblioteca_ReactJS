@@ -41,7 +41,7 @@ class NuevoSuscriptor extends Component {
     const nuevoSuscriptor = { apellido, carrera, codigo, nombre };
     const { firestore, history } = this.props;
     firestore.add({ collection: "suscriptores" }, nuevoSuscriptor).then(() => {
-      history.push("/admin/suscriptores");
+      history.push("/suscriptores");
       console.log(nuevoSuscriptor);
     });
   };
@@ -59,7 +59,7 @@ class NuevoSuscriptor extends Component {
       <>
         <MDBAnimation type="fadeInLeft">
           <form onSubmit={this.handSubmit}>
-            <Link to="/admin/suscriptores">
+            <Link to="/suscriptores">
               <MDBBtn color="teal darken-4" size="sm" className="mb-4">
                 <MDBIcon icon="arrow-circle-left" /> {""} Ver lista de
                 Suscriptores

@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 
 const MostrarSuscriptor = ({ suscriptor }) => (
   <MDBAnimation type="fadeInLeft">
-    <Link to="/admin/suscriptores">
+    <Link to="/suscriptores">
       <MDBBtn color="teal darken-4" size="sm" className="mb-4">
         <MDBIcon icon="arrow-circle-left" /> {""} Ver lista de Suscriptores
       </MDBBtn>
@@ -30,7 +30,7 @@ const MostrarSuscriptor = ({ suscriptor }) => (
         <p>Codigo: {suscriptor.codigo}</p>
       </MDBCardBody>
       <MDBCardFooter className="text-center">
-        <Link to={`/admin/suscriptores/editar/${suscriptor.id}`}>
+        <Link to={`/suscriptores/editar/${suscriptor.id}`}>
           <MDBBtn color="teal darken-4" size="sm" className="mb-4 ml-5">
             <MDBIcon icon="user-edit" /> {""} Editar Suscriptor
           </MDBBtn>

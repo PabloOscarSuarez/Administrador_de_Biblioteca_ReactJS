@@ -12,7 +12,7 @@ import {
 const MostrarSuscriptor = ({ suscriptor, handleChange, handleSubmit }) => {
   return (
     <MDBAnimation type="fadeInLeft">
-      <Link to="/admin/suscriptores">
+      <Link to="/suscriptores">
         <MDBBtn color="teal darken-4" size="sm" className="mb-4">
           <MDBIcon icon="arrow-circle-left" /> {""} Ver lista de Suscriptores
         </MDBBtn>

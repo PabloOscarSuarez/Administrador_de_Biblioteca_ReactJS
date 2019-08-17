@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import MostrarLibrosPage from "./MostrarLibros";
+import MostrarLibroPage from "./MostrarLibro";
 
 export default class MostarLibros extends Component {
   render() {
     return (
       <>
-        <MostrarLibrosPage />
+        <MostrarLibroPage />
       </>
     );
   }

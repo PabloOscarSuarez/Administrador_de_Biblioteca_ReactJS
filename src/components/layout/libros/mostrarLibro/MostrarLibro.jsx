@@ -3,7 +3,7 @@ import React from "react";
 function MostrarLibro() {
   return (
     <div>
-      <h1>mostrando libros</h1>
+      <h1>mostrando libro</h1>
     </div>
   );
 }

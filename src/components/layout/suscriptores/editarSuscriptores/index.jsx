@@ -34,7 +34,7 @@ class EditarSuscriptor extends Component {
         { collection: "suscriptores", doc: suscriptor.id },
         suscriptorEditado
       )
-      .then(history.push("/admin/suscriptores"));
+      .then(history.push("/suscriptores"));
   };
   render() {
     const { suscriptor } = this.props;
