@@ -14,7 +14,7 @@ const MostrarLibro = ({ libro }) => (
   <MDBAnimation type="fadeInLeft">
     <Link to="/">
       <MDBBtn color="teal darken-4" size="sm" className="mb-4">
-        <MDBIcon icon="arrow-circle-left" /> {""} Ver lista de Suscriptores
+        <MDBIcon icon="arrow-circle-left" /> {""} Ver lista de Libros
       </MDBBtn>
     </Link>
     <MDBCard>
@@ -34,6 +34,8 @@ const MostrarLibro = ({ libro }) => (
           <MDBBtn color="teal darken-4" size="sm" className="mb-4 ml-5">
             <MDBIcon icon="user-edit" /> {""} Editar Libro
           </MDBBtn>
+        </Link>
+        <Link to={`/libros/prestamo/${libro.id}`}>
           <MDBBtn color="danger" size="sm" className="mb-4 ml-5">
             <MDBIcon icon="caret-right" /> {""} Solicitar Prestamo
           </MDBBtn>
