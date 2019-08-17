@@ -30,7 +30,7 @@ const MostrarSuscriptor = ({ suscriptor }) => (
         <p>Codigo: {suscriptor.codigo}</p>
       </MDBCardBody>
       <MDBCardFooter className="text-center">
-        <Link to="/admin/suscriptores/editar/:id">
+        <Link to={`/admin/suscriptores/editar/${suscriptor.id}`}>
           <MDBBtn color="teal darken-4" size="sm" className="mb-4 ml-5">
             <MDBIcon icon="user-edit" /> {""} Editar Suscriptor
           </MDBBtn>
