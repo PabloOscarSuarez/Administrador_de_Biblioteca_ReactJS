@@ -9,7 +9,7 @@ import {
   MDBIcon
 } from "mdbreact";
 
-const MostrarSuscriptor = ({ suscriptor, handleChange, handleSubmit }) => {
+const EditarSuscriptor = ({ suscriptor, handleChange, handleSubmit }) => {
   return (
     <MDBAnimation type="fadeInLeft">
       <Link to="/suscriptores">
@@ -76,4 +76,4 @@ const MostrarSuscriptor = ({ suscriptor, handleChange, handleSubmit }) => {
   );
 };
 
-export default MostrarSuscriptor;
+export default EditarSuscriptor;

@@ -41,7 +41,7 @@ const EliminarLibro = ({ libros, eliminarLibro }) => {
                   <td>{libro.editorial}</td>
                   <td className="text-center">{libro.existencia}</td>
                   <td className="text-center">
-                    {libro.existencia - libro.prestados.length}
+                    {libro.existencia - libro.prestado.length}
                   </td>
 
                   <td className="text-center">

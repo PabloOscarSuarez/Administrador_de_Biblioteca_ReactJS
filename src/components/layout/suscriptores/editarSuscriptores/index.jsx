@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import EditarSuscriptorPage from "./EditarSuscriptores";
 //import connect de react-redux-firebase
 import { firestoreConnect } from "react-redux-firebase";
