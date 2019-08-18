@@ -56,7 +56,7 @@ const EditarLibro = ({ libro, handleChange, handleSubmit }) => {
               />
               <MDBInput
                 valueDefault={libro.existencia}
-                label="Legajo"
+                label="Cantidad"
                 group
                 type="number"
                 validate

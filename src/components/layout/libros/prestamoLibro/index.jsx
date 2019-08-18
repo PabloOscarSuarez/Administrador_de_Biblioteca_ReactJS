@@ -55,6 +55,37 @@ class PrestamoLibro extends Component {
       }
     });
   };
+
+  solicitarPrestamo = () => {
+    const suscriptor = this.state.resultado;
+
+    // fecha de alta
+    suscriptor.fecha_solicitud = new Date().toLocaleDateString();
+
+    // No se pueden mutar los pros, tomar una copia y crear un arreglo nuevo
+    let prestado = [];
+    prestado = [...this.props.libro.prestado, suscriptor];
+
+    // Copiar el objeto y agregar los prestados
+    const libro = { ...this.props.libro };
+
+    // asignar los prestados
+    libro.prestado = prestado;
+
+    // extraer firestore
+    const { firestore, history } = this.props;
+
+    // almacenar en la BD
+    firestore
+      .update(
+        {
+          collection: "libros",
+          doc: libro.id
+        },
+        libro
+      )
+      .then(history.push("/"));
+  };
   leerDato = e => {
     this.setState({
       [e.target.name]: e.target.value
@@ -71,6 +102,7 @@ class PrestamoLibro extends Component {
         leerDato={this.leerDato}
         buscarAlumno={this.buscarAlumno}
         resultadoAlumnos={resultado}
+        solicitarPrestamo={this.solicitarPrestamo}
       />
     ) : (
       <Spiner />

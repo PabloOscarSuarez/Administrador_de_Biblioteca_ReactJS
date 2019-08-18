@@ -12,7 +12,13 @@ import Spiner from "../../spiner";
 
 import FichaSuscriptor from "../../suscriptores/fichaDeSuscriptor";
 
-function PrestamoLibro({ libro, leerDato, buscarAlumno, resultadoAlumnos }) {
+function PrestamoLibro({
+  libro,
+  leerDato,
+  buscarAlumno,
+  resultadoAlumnos,
+  solicitarPrestamo
+}) {
   return (
     <MDBAnimation type="fadeInLeft">
       <Link to="/">
@@ -57,7 +63,10 @@ function PrestamoLibro({ libro, leerDato, buscarAlumno, resultadoAlumnos }) {
           <Spiner />
         </div>
       ) : (
-        <FichaSuscriptor alumno={resultadoAlumnos} />
+        <FichaSuscriptor
+          alumno={resultadoAlumnos}
+          solicitarPrestamo={solicitarPrestamo}
+        />
       )}
     </MDBAnimation>
   );

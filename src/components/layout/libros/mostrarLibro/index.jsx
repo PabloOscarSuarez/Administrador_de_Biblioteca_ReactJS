@@ -10,10 +10,36 @@ import { connect } from "react-redux";
 import Spiner from "../../spiner";
 
 class MostrarLibro extends Component {
+  devolverLibro = codigo => {
+    // extraer firestore
+    const { firestore } = this.props;
+
+    // copia del libro
+    const libroActualizado = { ...this.props.libro };
+
+    // eliminar la persona que esta realizando la devolución de prestados
+    const prestado = libroActualizado.prestado.filter(
+      elemento => elemento.codigo !== codigo
+    );
+    libroActualizado.prestado = prestado;
+
+    // actualizar en firebase
+    firestore.update(
+      {
+        collection: "libros",
+        doc: libroActualizado.id
+      },
+      libroActualizado
+    );
+  };
   render() {
     const { libro } = this.props;
 
-    return libro ? <MostrarLibroPage libro={libro} /> : <Spiner />;
+    return libro ? (
+      <MostrarLibroPage libro={libro} devolverLibro={this.devolverLibro} />
+    ) : (
+      <Spiner />
+    );
   }
 }
 
