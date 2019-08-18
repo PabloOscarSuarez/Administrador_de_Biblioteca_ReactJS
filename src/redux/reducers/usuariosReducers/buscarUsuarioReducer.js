@@ -1,11 +1,16 @@
+import { RESULTADO_USUARIO } from "../../Type/type";
+
 const initialState = {
-  usuarios: []
+  resultado: "",
 };
 
 export const usuarios = (state = initialState, action) => {
   switch (action.type) {
-    case "ACTION_TYPE":
-      return;
+    case RESULTADO_USUARIO:
+      return {
+        ...state,
+        resultado: action.payload,
+      };
     default:
       return state;
   }

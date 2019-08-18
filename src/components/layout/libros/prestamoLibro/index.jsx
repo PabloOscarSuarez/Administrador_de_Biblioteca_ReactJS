@@ -6,14 +6,14 @@ import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
 import { connect } from "react-redux";
 //---------
+import { guardarUsuario } from "../../../../redux/actions/buscarUsuarioActions";
 
 import Spiner from "../../spiner";
 
 class PrestamoLibro extends Component {
   state = {
     noResultados: false,
-    busqueda: "",
-    resultado: { datos: "nada" }
+    busqueda: ""
   };
 
   buscarAlumno = e => {
@@ -34,8 +34,7 @@ class PrestamoLibro extends Component {
       if (resultado.empty) {
         // no hay resultados
 
-        // almacenar en redux un objeto vacio // proximo a modificar
-        this.setState({ resultado: {} });
+        this.props.suscriptor("");
 
         // actualizar el state en base a si hay resultados
         this.setState({
@@ -43,10 +42,10 @@ class PrestamoLibro extends Component {
         });
       } else {
         // si hay resultados
-        // colocar el resultado en el state de Redux proximo a corregir
+        // colocar el resultado en el state de Redux
         const datos = resultado.docs[0].data();
 
-        this.setState({ resultado: datos });
+        this.props.suscriptor(datos);
 
         // actualizar el state en base a si hay resultados
         this.setState({
@@ -57,14 +56,14 @@ class PrestamoLibro extends Component {
   };
 
   solicitarPrestamo = () => {
-    const suscriptor = this.state.resultado;
+    const { datosSuscriptor } = this.props;
 
     // fecha de alta
-    suscriptor.fecha_solicitud = new Date().toLocaleDateString();
+    datosSuscriptor.fecha_solicitud = new Date().toLocaleDateString();
 
     // No se pueden mutar los pros, tomar una copia y crear un arreglo nuevo
     let prestado = [];
-    prestado = [...this.props.libro.prestado, suscriptor];
+    prestado = [...this.props.libro.prestado, datosSuscriptor];
 
     // Copiar el objeto y agregar los prestados
     const libro = { ...this.props.libro };
@@ -93,7 +92,7 @@ class PrestamoLibro extends Component {
   };
 
   render() {
-    const { resultado } = this.state;
+    const { datosSuscriptor } = this.props;
     const { libro } = this.props;
 
     return libro ? (
@@ -101,7 +100,7 @@ class PrestamoLibro extends Component {
         libro={libro}
         leerDato={this.leerDato}
         buscarAlumno={this.buscarAlumno}
-        resultadoAlumnos={resultado}
+        resultadoAlumnos={datosSuscriptor}
         solicitarPrestamo={this.solicitarPrestamo}
       />
     ) : (
@@ -111,8 +110,18 @@ class PrestamoLibro extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  libro: state.firestore.ordered.libro && state.firestore.ordered.libro[0] // como lo que recibo es un array  de 1 elemento directamente lo saco con la [0] para usarlo directo por props
+  libro: state.firestore.ordered.libro && state.firestore.ordered.libro[0],
+  datosSuscriptor: state.usuario.resultado
+  // como lo que recibo es un array  de 1 elemento directamente lo saco con la [0] para usarlo directo por props
 });
+
+const mapDispatchToProps = dispatch => {
+  return {
+    suscriptor: data => {
+      dispatch(guardarUsuario(data));
+    }
+  };
+};
 
 export default compose(
   firestoreConnect(props => [
@@ -124,6 +133,6 @@ export default compose(
   ]),
   connect(
     mapStateToProps,
-    null
+    mapDispatchToProps
   )
 )(PrestamoLibro);

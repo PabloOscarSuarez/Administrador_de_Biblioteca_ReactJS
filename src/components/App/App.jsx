@@ -5,7 +5,7 @@ import { Switch, Route } from "react-router-dom";
 import RoutesSuscriptores from "../layout/suscriptores/routesSuscriptores";
 
 //import pagina generia si no ingreso a una ruta correcta
-import Nofound from "../layout/noFound";
+import Nofound from "../layout/noFound"; //en proceso de creacion
 import Navbar from "../layout/Navbar/";
 
 import { MDBContainer } from "mdbreact";

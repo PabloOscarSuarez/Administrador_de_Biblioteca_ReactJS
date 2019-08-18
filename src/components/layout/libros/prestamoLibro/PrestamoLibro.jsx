@@ -55,7 +55,7 @@ function PrestamoLibro({
           <MDBIcon icon="caret-right" /> {""} Buscar
         </MDBBtn>
       </MDBCard>
-      {resultadoAlumnos.datos === "nada" ? (
+      {resultadoAlumnos === "" ? (
         <div className="text-center mt-2">
           <p>
             <strong>Escuchando el ingreso de datos...</strong>
