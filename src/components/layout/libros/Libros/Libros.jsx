@@ -5,13 +5,14 @@ import {
   MDBTableHead,
   MDBIcon,
   MDBAnimation,
-  MDBBtn
+  MDBBtn,
+  MDBContainer
 } from "mdbreact";
 import { Link } from "react-router-dom";
 
 const EliminarLibro = ({ libros, eliminarLibro }) => {
   return (
-    <>
+    <MDBContainer>
       <Link to="/libros/nuevo">
         <MDBBtn color="teal darken-4" size="sm" className="mb-4">
           Nuevo Libro
@@ -65,7 +66,7 @@ const EliminarLibro = ({ libros, eliminarLibro }) => {
           </MDBTableBody>
         </MDBTable>
       </MDBAnimation>
-    </>
+    </MDBContainer>
   );
 };
 

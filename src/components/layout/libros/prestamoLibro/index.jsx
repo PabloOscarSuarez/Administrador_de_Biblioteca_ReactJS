@@ -83,7 +83,10 @@ class PrestamoLibro extends Component {
         },
         libro
       )
-      .then(history.push("/"));
+      .then(() => {
+        this.props.suscriptor("");
+        return history.push("/");
+      });
   };
   leerDato = e => {
     this.setState({

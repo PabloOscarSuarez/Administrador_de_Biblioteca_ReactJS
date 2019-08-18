@@ -16,7 +16,7 @@ const firebaseConfig = {
   projectId: "bibliostore-17198",
   storageBucket: "bibliostore-17198.appspot.com",
   messagingSenderId: "761034385177",
-  appId: "1:761034385177:web:f8b4bd1e595548ec"
+  appId: "1:761034385177:web:f8b4bd1e595548ec",
 };
 
 // inicializar firebase
@@ -25,7 +25,7 @@ firebase.initializeApp(firebaseConfig);
 // configuracion de react-redux
 const rrfConfig = {
   userProfile: "users",
-  useFirestoreForProfile: true
+  useFirestoreForProfile: true,
 };
 
 // crear el enhacer con compose de redux y firestore
@@ -37,9 +37,6 @@ const createStoreWithFirebase = compose(
 // Creo el store
 const store = createStoreWithFirebase(
   rootReducer,
-  compose(
-    reactReduxFirebase(firebase),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-  )
+  compose(reactReduxFirebase(firebase))
 );
 export default store;

@@ -8,7 +8,8 @@ import {
   MDBNav,
   MDBNavItem,
   MDBNavLink,
-  MDBInput
+  MDBInput,
+  MDBContainer
 } from "mdbreact";
 import { Link } from "react-router-dom";
 import Spiner from "../../spiner";
@@ -56,7 +57,7 @@ class NuevoSuscriptor extends Component {
   render() {
     const { nombre, apellido, codigo, carrera } = this.state;
     return (
-      <>
+      <MDBContainer>
         <MDBAnimation type="fadeInLeft">
           <form onSubmit={this.handSubmit}>
             <Link to="/suscriptores">
@@ -164,7 +165,7 @@ class NuevoSuscriptor extends Component {
             )}
           </form>
         </MDBAnimation>
-      </>
+      </MDBContainer>
     );
   }
 }
